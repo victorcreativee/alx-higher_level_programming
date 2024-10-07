@@ -2,6 +2,7 @@
 """Module 5-rectangle
 """
 
+
 class Rectangle:
     """Rectangle class defination."""
 
