@@ -2,6 +2,7 @@
 """
 Defines a Rectangle class.
 """
+
 class Rectangle:
     """Rectangle class body """
 
