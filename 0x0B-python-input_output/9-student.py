@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-""" My class module
-"""
+"""Defines a class Student."""
 
-class MyClass:
-    """ My class
-    """
 
-    def __init__(self, name):
-        self.name = name
-        self.number = 0
+class Student:
+    """ Student class body."""
 
-    def __str__(self):
-        return "[MyClass] {} - {:d}".format(self.name, self.number)
+    def __init__(self, first_name, last_name, age):
+        """Initialize student props in contructor
+        """
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self):
+        return self.__dict__
