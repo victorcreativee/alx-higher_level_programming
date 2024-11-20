@@ -1,4 +1,4 @@
---script that creates the database hbtn_0d_usa and the table states (in the database hbtn_0d_usa) on your MySQL server
+-- script that creates the database hbtn_0d_usa and the table states (in the database hbtn_0d_usa) on your MySQL server
 -- If the database hbtn_0d_usa already exists, your script should not fail
 -- If the table states already exists, your script should not fail
 CREATE DATABASE
