@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# Script that sends a POST request to a given URL with a given email.
+#!/usr/bin/python3
+"""Sends a POST request to a given URL with a given email.
+"""
 import urllib.parse
 import urllib.request
 import sys
