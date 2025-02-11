@@ -2,17 +2,34 @@
 
 const request = require('request');
 
-const url = process.argv[2];
+if (process.argv.length < 3) {
+  console.log('Usage: node 4-starwars_count.js <API_URL>');
+  process.exit(1);
+}
 
-request.get(url, (error, response, body) => {
+const apiUrl = process.argv[2];
+const characterId = '18';
+
+request(apiUrl, (error, response, body) => {
   if (error) {
     console.error(error);
-  } else if (response.statusCode !== 200) {
-    console.error(`Error: ${response.statusCode} - ${response.statusMessage}`);
-  } else {
-    const films = JSON.parse(body).results;
-    const characterId = '18';
-    const count = films.filter(film => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)).length;
+    return;
+  }
+
+  try {
+    const data = JSON.parse(body);
+    const films = data.results;
+    let count = 0;
+
+    films.forEach((film) => {
+      if (film.characters.some((charUrl) => charUrl.includes(`/people/${characterId}/`))) {
+        count++;
+      }
+    });
+
     console.log(count);
+  } catch (parseError) {
+    console.error('Error parsing JSON:', parseError);
   }
 });
+
